@@ -48,7 +48,7 @@ The code is divided into a few core components:
 - Encryption Logic: The encrypt() function handles the character substitution based on the current rotor positions, advancing the rotors after each character for a dynamic encryption process.
 - Graphical Interface: The Tkinter GUI allows users to interact with the Enigma Machine, setting rotor positions, switching modes, and inputting text.
 
-# Example of the Encryption Flow
+### Example of the Encryption Flow
 1. Set Initial Rotor Positions: Choose positions for rotors 1, 2, and 3.
 2. Encrypt or Decrypt: Toggle between modes to either encode or decode text.
 3. Process Text: Each letter input goes through the rotors, hits the reflector, and comes back, giving the encrypted/decrypted letter as output.
