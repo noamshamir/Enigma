@@ -1,48 +1,60 @@
-# Enigma Machine Explained
+# Enigma Machine Simulation
 
-The Enigma Machine was an encryption device used predominantly by Nazi Germany during World War II to secure military communications. The machine utilized a complex system of rotors and wiring to create an encrypted version of a message. Each setting of the machine would produce a different encryption output, making the Enigma Machine challenging to decipher without knowing the initial settings.
+This project simulates the WWII-era Enigma Machine in Python, complete with a graphical interface for encryption and decryption of text. The simulation captures the core functionality of the historical Enigma, used for secure communication.
+
+## Table of Contents
+- [Overview](#overview)
+- [How the Enigma Machine Works](#how-the-enigma-machine-works)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Code Overview](#code-overview)
+
+## Overview
+
+The Enigma Machine was a cipher device that encrypted messages through a series of rotating, interchangeable rotors. Each rotor mapped each letter to another in a complex, reversible way. Combined with a reflector, the machine provided highly secure, self-reciprocal encryption, where decryption could be achieved by setting the machine to the same initial configuration as used in encryption.
 
 ## How the Enigma Machine Works
 
-The Enigma Machine operates by substituting each letter in a message with another letter, based on a series of internal rotors and a reflector. Here’s a breakdown of its main components:
+1. **Rotors**: Three rotors map each letter to another based on their internal wiring. Each rotor can start at a specific position (1-26), which determines the initial encryption mapping.
+2. **Reflector**: After passing through the rotors, the signal hits the reflector and returns back through the rotors, adding an additional layer of complexity.
+3. **Stepping Mechanism**: Each key press rotates the first rotor by one position. After a full rotation, the next rotor advances, creating an evolving encryption pattern with each letter.
 
-### 1. Rotors
-Rotors are circular disks with electrical contacts on each side, each containing a unique wiring sequence that maps each letter to another. Each rotor can be set to a specific position (1-26), which determines the starting point for encryption.
+The Enigma Machine is **self-reciprocal**, meaning the same settings used to encrypt a message can be used to decrypt it.
 
-- **Configuration**: The machine has three rotors that can be set to different initial positions. Each step advances the first rotor by one position, and after a complete rotation, it advances the second rotor.
-- **Wiring**: Each rotor has a different internal wiring that creates unique letter mappings.
+## Features
 
-### 2. Reflector
-The reflector is a component that bounces the signal back through the rotors. After passing through the rotors, the electrical signal reaches the reflector, which sends it back through the rotors, further scrambling the message. This dual path through the rotors makes the Enigma machine self-reciprocal, meaning the same machine settings can decrypt an encrypted message.
+- **Configurable Rotors**: Customize the rotor starting positions to change the encryption.
+- **Encryption/Decryption Mode**: Toggle between encrypt and decrypt functions.
+- **GUI Interface**: A user-friendly Tkinter-based interface for configuring the machine and viewing results.
 
-### 3. Stepping Mechanism
-Each key press advances the first rotor by one position, changing the encryption for each subsequent character. When the first rotor completes a full rotation, it advances the second rotor, similar to an odometer. This mechanism increases the encryption’s complexity by creating a continuously changing mapping.
+## Installation
 
-## Encryption Process
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/enigma-simulation.git
+   cd enigma-simulation
+2. Ensure you have python and tkinter installed
 
-1. **Initial Setup**: The machine operator sets each rotor to a specific position, defining the initial encryption mapping.
-2. **Character Transformation**: When a letter is entered:
-   - The signal passes through the rotors, where each rotor’s wiring and current position modify the signal.
-   - The signal reaches the reflector and is sent back through the rotors.
-   - The output letter is displayed, representing the encrypted character.
-3. **Step Advancement**: After each character, the rotors advance, changing the internal wiring mapping for the next character.
+## Features
 
-## Example
+1. Run the program:
+   ```bash
+   python enigma_gui.py
+2. Use the interface to set rotor positions and switch between encrypt and decrypt modes.
+3. Input text to see the encrypted or decrypted output.
 
-If an operator sets the rotors to positions **5-18-23** and types "HELLO":
-- The machine encrypts "H" based on the rotor settings.
-- The first rotor advances by one position for the next letter "E," altering the encryption mapping.
-- This process repeats until the entire message is encrypted.
+## Code Overview
+The code is divided into a few core components:
 
-## Decryption
+- Rotors and Reflector: Defined with specific letter mappings to simulate the historical rotor wirings.
+- Initialization: The initialize_enigma() function sets the starting positions of the rotors, creating a unique encryption setup each time.
+- Encryption Logic: The encrypt() function handles the character substitution based on the current rotor positions, advancing the rotors after each character for a dynamic encryption process.
+- Graphical Interface: The Tkinter GUI allows users to interact with the Enigma Machine, setting rotor positions, switching modes, and inputting text.
 
-Since the Enigma Machine is reciprocal, decrypting a message is as simple as entering the encrypted message with the machine set to the original rotor positions. The message will pass back through the machine, reversing the encryption process and revealing the original text.
+## Example of the Encryption Flow
+1. Set Initial Rotor Positions: Choose positions for rotors 1, 2, and 3.
+2. Encrypt or Decrypt: Toggle between modes to either encode or decode text.
+3. Process Text: Each letter input goes through the rotors, hits the reflector, and comes back, giving the encrypted/decrypted letter as output.
 
-## Summary of Components in the Code
 
-- **Rotors**: Defined arrays representing rotor wiring configurations.
-- **Reflector**: An array that creates a reversible mapping for encryption and decryption.
-- **Rotation Function**: Advances rotor positions after each character to emulate the stepping mechanism.
-- **GUI (Tkinter)**: Provides a graphical interface for adjusting rotor positions, selecting encryption/decryption modes, and inputting text.
-
-The Enigma Machine’s encryption relied on secrecy in the rotor configurations and initial settings, making it a powerful tool until its eventual cracking by Allied cryptographers. This project emulates the Enigma’s encryption mechanics, allowing users to explore this historical cipher.
