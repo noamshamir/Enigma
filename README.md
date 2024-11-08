@@ -6,8 +6,7 @@ This project simulates the WWII-era Enigma Machine in Python, complete with a gr
 - [Overview](#overview)
 - [How the Enigma Machine Works](#how-the-enigma-machine-works)
 - [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
+- [Installation](#use-and-installation)
 - [Code Overview](#code-overview)
 
 ## Overview
@@ -28,21 +27,18 @@ The Enigma Machine is **self-reciprocal**, meaning the same settings used to enc
 - **Encryption/Decryption Mode**: Toggle between encrypt and decrypt functions.
 - **GUI Interface**: A user-friendly Tkinter-based interface for configuring the machine and viewing results.
 
-## Installation
+## Use and Installation
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/enigma-simulation.git
    cd enigma-simulation
 2. Ensure you have python and tkinter installed
-
-## Features
-
-1. Run the program:
+3. Run the program:
    ```bash
    python enigma_gui.py
-2. Use the interface to set rotor positions and switch between encrypt and decrypt modes.
-3. Input text to see the encrypted or decrypted output.
+4. Use the interface to set rotor positions and switch between encrypt and decrypt modes.
+5. Input text to see the encrypted or decrypted output.
 
 ## Code Overview
 The code is divided into a few core components:
@@ -52,7 +48,7 @@ The code is divided into a few core components:
 - Encryption Logic: The encrypt() function handles the character substitution based on the current rotor positions, advancing the rotors after each character for a dynamic encryption process.
 - Graphical Interface: The Tkinter GUI allows users to interact with the Enigma Machine, setting rotor positions, switching modes, and inputting text.
 
-## Example of the Encryption Flow
+# Example of the Encryption Flow
 1. Set Initial Rotor Positions: Choose positions for rotors 1, 2, and 3.
 2. Encrypt or Decrypt: Toggle between modes to either encode or decode text.
 3. Process Text: Each letter input goes through the rotors, hits the reflector, and comes back, giving the encrypted/decrypted letter as output.
